@@ -1,0 +1,50 @@
+<div class=" bg-gray-100 p-2">
+
+            <div class="flex justify-between w-full">
+                <div class="flex items-center">
+                     <div class="text-white bg-gray-300 rounded-sm p-1 text-center"  (click)="toggleResponse()">
+                        <i class="fas fa-folder-open" *ngIf="showResponse"></i>
+                        <i class="fa-solid fa-folder" *ngIf="!showResponse"></i>
+                    </div>
+                    <div class="mx-2">
+                        v43510204ekt-01 - 7101630266
+                    </div>
+                      
+                   
+                </div>
+               <div>
+
+               </div>
+            </div>
+
+
+
+            <ng-container *ngIf="showResponse">
+                <div class="flex justify-between w-full">
+                    <div>
+                        <div class="flex justify-between w-full">
+
+                            <div class="text-white bg-red-700 rounded-sm p-1 text-center mx-1">
+                                <i class="fas fa-columns"></i>
+                            </div>
+                            <div class="text-white bg-red-700 rounded-sm p-1 text-center mx-1">
+                                <i class="fas fa-th-list"></i>
+                            </div>
+
+                    </div>
+                </div>
+                  
+              
+            </div>
+          
+
+            <div class="p-1"  >
+                <app-response-format></app-response-format>
+            </div>
+            </ng-container>
+
+           
+
+          
+           
+        </div>
