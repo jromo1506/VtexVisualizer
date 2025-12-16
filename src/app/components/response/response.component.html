@@ -1,50 +1,46 @@
-<div class=" bg-gray-100 p-2">
+<div class="bg-gray-100 p-2">
 
-            <div class="flex justify-between w-full">
-                <div class="flex items-center">
-                     <div class="text-white bg-gray-300 rounded-sm p-1 text-center"  (click)="toggleResponse()">
-                        <i class="fas fa-folder-open" *ngIf="showResponse"></i>
-                        <i class="fa-solid fa-folder" *ngIf="!showResponse"></i>
-                    </div>
-                    <div class="mx-2">
-                        v43510204ekt-01 - 7101630266
-                    </div>
-                      
-                   
-                </div>
-               <div>
+  <div class="flex justify-between w-full">
+    <div class="flex items-center">
+      <div
+        class="text-white bg-gray-300 rounded-sm p-1 text-center hover:cursor-pointer hover:bg-gray-400"
+        (click)="toggleResponse()">
+        <i class="fas fa-folder-open" *ngIf="showResponse"></i>
+        <i class="fa-solid fa-folder" *ngIf="!showResponse"></i>
+      </div>
 
-               </div>
-            </div>
+      <div class="mx-2 font-semibold">
+        {{ data?.orderId }}
+      </div>
+    </div>
+  </div>
 
+  <ng-container *ngIf="showResponse">
 
-
-            <ng-container *ngIf="showResponse">
-                <div class="flex justify-between w-full">
-                    <div>
-                        <div class="flex justify-between w-full">
-
-                            <div class="text-white bg-red-700 rounded-sm p-1 text-center mx-1">
-                                <i class="fas fa-columns"></i>
-                            </div>
-                            <div class="text-white bg-red-700 rounded-sm p-1 text-center mx-1">
-                                <i class="fas fa-th-list"></i>
-                            </div>
-
-                    </div>
-                </div>
-                  
-              
-            </div>
-          
-
-            <div class="p-1"  >
-                <app-response-format></app-response-format>
-            </div>
-            </ng-container>
-
-           
-
-          
-           
+    <div class="flex justify-between w-full mt-2">
+      <div class="flex">
+        <div class="text-white bg-slate-400 rounded-sm p-1 text-center">
+          <i class="fas fa-columns"></i>
         </div>
+        <div class="text-white bg-slate-400 rounded-sm p-1 text-center mx-1">
+          <i class="fas fa-th-list"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTENEDOR DIVIDIDO -->
+    <div class="mt-1 flex w-full gap-2">
+      <!-- PRE 1 -->
+      <div class="w-1/2 max-h-[400px] overflow-auto bg-slate-900 text-green-500 border border-gray-300 rounded p-2">
+        <pre class="whitespace-pre">{{ data | json }}</pre>
+      </div>
+
+      <!-- PRE 2 -->
+      <div class="w-1/2 max-h-[400px] overflow-auto bg-slate-900 text-green-500 border-gray-300 rounded p-2">
+        <pre class="whitespace-pre">{{ data | json }}</pre>
+      </div>
+    </div>
+
+  </ng-container>
+
+</div>

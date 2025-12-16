@@ -1,0 +1,17 @@
+<div *ngIf="open"  @fadeIn class="fixed inset-0 flex items-center justify-center z-50 ">
+  <div class="bg-gray-100  shadow-lg 0 border-4 border-t-red-700  p-4 min-w-[300px] w-[60vw]" >
+    <ng-content></ng-content>
+
+    <div class="text-right mt-4">
+        <button
+            (click)="accept.emit()"
+            class="px-3 py-1 bg-red-700 text-white rounded mr-1">
+            Aceptar
+      </button>
+        
+      <button (click)="close.emit()" class="px-3 py-1 bg-gray-300 rounded">
+        Cerrar
+      </button>
+    </div>
+  </div>
+</div>

@@ -3,6 +3,6 @@ export const environment = {
   vtex: {
     appKey: 'vtexappkey-elektra-NPFWJX',
     appToken: 'KRIGDRIAIALHRXSYHPJPXWQBQEAAVSLBBFNFLCVWTITJOTHECPRFBJJNBHPZQHFQPJFMKNMFUNVODGMWWWYFAFZSWZEEMWFMCCTEOVUPDMLONUJUVTDUJAPJKNPKIISY',
-    baseUrl: 'https://{{accountName}}.vtexcommercestable.com.br/api/oms/pvt/orders'
+    vtexBaseUrl: 'https://elektra.vtexcommercestable.com.br/api',
   }
 }

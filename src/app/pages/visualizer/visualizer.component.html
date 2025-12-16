@@ -1,23 +1,29 @@
 <div class="mt-5">
-    <div class="w-100 flex  flex-col justify-center items-center">
+  <div class="w-100 flex flex-col items-center">
+    <div class="w-[80%]">
 
-        <app-response class="w-[80%] border-1 border-b border-gray-300 rounded-md mt-1" ></app-response>
-        
-        <app-response class="w-[80%] border-1 border-b border-gray-300 rounded-md mt-1" ></app-response>
-
-
-
-
-
-
-
-
-
-
-
-
-
-       
-    </div>
+      <!-- HEADER -->
      
+
+      <!-- CONTENIDO CONDICIONAL -->
+      <ng-container *ngIf="(apiVtex.orders$ | async) as orders">
+
+        <!-- SIN RESULTADOS -->
+        <div
+          *ngIf="orders.length === 0"
+          class="p-4 text-center text-gray-500 border rounded-md bg-gray-50">
+          Ingresa uno o más IDs para buscar pedidos
+        </div>
+
+        <!-- CON RESULTADOS -->
+        <app-response
+          *ngFor="let order of orders"
+          class="border rounded-md mt-1"
+          [data]="order">
+        </app-response>
+
+      </ng-container>
+
+    </div>
+  </div>
 </div>

@@ -1,21 +1,68 @@
-<div class="p-1 w-100 bg-red-700 text-white">
-    <div class="flex ">
-        <div class="text-white mx-3 p-1">
-            Visualizador Vtex SC
+<div class="p-1 w-full bg-red-700 text-white">
+  <div class="flex justify-center">
+    <div class="w-[80%] flex items-center gap-2">
+
+      <div class="w-[10%] font-semibold">
+        Visualizador VTEX
+      </div>
+
+      <!-- INPUT DIRECTO -->
+      <div class="flex flex-1 items-center gap-2">
+        <input
+          type="text"
+          [(ngModel)]="inputOrders"
+          class="flex-1 rounded-sm p-1 text-xs text-gray-900"
+          placeholder="v43510204ekt-01, v43510204ekt-02, v43510204ekt-03..."
+        />
+
+        <!-- ABRIR MODAL -->
+        <div
+          class="bg-red-800 rounded-sm p-1 text-center cursor-pointer"
+          (click)="openModal = true">
+          <i class="fa-regular fa-file"></i>
         </div>
 
-        <div>
-              <input type="text" class="rounded-sm p-1 w-[50vw] text-black"> 
+        <!-- BUSCAR -->
+        <div
+          class="bg-red-800 rounded-sm p-1 text-center cursor-pointer"
+          (click)="searchFromInput()">
+          <i class="fas fa-search"></i>
         </div>
-
-
-        <div class="bg-red-800 rounded-sm ml-2 p-1 text-center">
-             <i class="fa-regular fa-file  "></i>
-        </div>
-        <div class="bg-red-800 rounded-sm ml-2 p-1 text-center">
-             <i class="fas fa-search"></i>
-        </div>
+      </div>
     </div>
-  
-
+  </div>
 </div>
+
+<!-- MODAL ARCHIVO -->
+<app-file-modal
+  [open]="openModal"
+  (close)="openModal = false"
+  (accept)="onAccept()">
+
+  <h2 class="text-lg font-bold">Adjuntar archivo</h2>
+
+  <p class="my-2">
+    Comparar múltiples IDs mediante un archivo (.txt / .json)
+  </p>
+
+  <input
+    type="file"
+    accept=".txt,.json"
+    hidden
+    #fileInput
+    (change)="onFileUpload($event)"
+  />
+
+  <button
+    type="button"
+    (click)="fileInput.click()"
+    class="bg-red-700 text-white p-1 hover:bg-red-800">
+    Seleccionar archivo
+  </button>
+
+  <pre
+    class="bg-slate-900 text-green-300 p-2 text-sm overflow-auto max-h-[40vh]">
+{{ orders | json }}
+  </pre>
+
+</app-file-modal>

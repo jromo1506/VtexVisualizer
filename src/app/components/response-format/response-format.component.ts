@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 
 
@@ -13,16 +13,17 @@ import { Component } from '@angular/core';
 })
 export class ResponseFormatComponent {
 
-  data = {
-  orderId: 123,
-  status: 'approved',
-  items: [
-    { sku: 'A1', qty: 2 },
-    { sku: 'B2', qty: 1 }
-  ]
+ 
+  @Input() data: any;
+
+  showResponse = false;
+
+  toggleResponse() {
+    this.showResponse = !this.showResponse;
+  }
 };
 
 
   
 
-}
+

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ResponseFormatComponent } from '../response-format/response-format.component';
 
 @Component({
@@ -11,6 +11,8 @@ import { ResponseFormatComponent } from '../response-format/response-format.comp
 export class ResponseComponent {
 
   showResponse = false;
+  @Input() data: any;
+
   
 toggleResponse() {
   this.showResponse = !this.showResponse;
